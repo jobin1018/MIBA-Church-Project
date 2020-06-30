@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} contact {% endblock %}
+
+{% block header %}<header class="non-home-header contact-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Contact</h1>
+    </div>
+</header>
+
+<section class="container contact-container">
+    <div class="row  d-flex align-items-center justify-content-center">
+        <div class="card sermon-card mb-4 contact-info-card col-12 col-sm-12 col-md-6 col-lg-6" style="width: 10rem;">
+            <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba contact">
+            <div class="card-body sermon-card-body contact-info-card-body text-white">
+                <p class="card-text"><img src="{% static 'images/phoneIcon.png' %}" alt="phone-icon"> 0431370627</p>
+                <p class="card-text"><img src="{% static 'images/emailIcon.png' %}" alt="email-icon">
+                    mbassembly@yahoo.com</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+            <form>
+                <div class="form-group">
+                    <label for="MibaFormControlInput1">Name</label>
+                    <input type="text" class="form-control" id="MibaFormControlInput1" placeholder="Name here">
+                </div>
+                <div class="form-group">
+                    <label for="MibaFormControlInput1">Email address</label>
+                    <input type="email" class="form-control" id="MibaFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class=" form-group">
+                    <label for="MibaFormControlTextarea1">Message</label>
+                    <textarea class="form-control" id="MibaFormControlTextarea1" rows="3"></textarea>
+                </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

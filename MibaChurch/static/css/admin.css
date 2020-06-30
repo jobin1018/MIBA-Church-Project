@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&family=Nunito:ital@1&family=Poppins:wght@500&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+}
+#header{
+    height: 50px;
+    background: #13456A;
+    color: #ffffff;   
+}
+#header a:link, #header a:visited {
+    color: #FBB538;
+}
+#branding h1{
+    color: #ffffff;
+}
+.brand-text{
+    color: #FBB538;
+}
+.module h2, .module caption, .inline-group h2{
+    background: #13456A;
+    color: #ffffff;
+    height: 20px;
+}
+a.section:link{
+    color: #ffffff;
+}
+a:link, .model-user a, .model-sermons a{
+    color: #000;
+}

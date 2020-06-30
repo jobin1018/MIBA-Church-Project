@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} sermons {% endblock %}
+
+{% block header %}<header class="non-home-header sermons-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Sermons</h1>
+    </div>
+</header>
+
+<section class="container sermons-wrapper">
+    <div class="row">
+        {% for sermon in sermons %}
+        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba sermon">
+            <div class="card-body sermon-card-body">
+                <p class="card-text text-uppercase">{{sermon.title}}</p>
+                <button type="button" class="btn btn-primary sermon-card-btn" data-toggle="modal"
+                    data-target="#MibaModalCenter{{sermon.id}}">Watch</button>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <!-- Modal -->
+    {% for sermon in sermons %}
+    <div class="modal fade" id="MibaModalCenter{{sermon.id}}" tabindex="-1" role="dialog"
+        aria-labelledby="MibaModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MibaModalLongTitle{{sermon.id}}">MIBA Sermon - {{sermon.date_posted}}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item sermon-iframe"
+                        src="https://www.youtube.com/embed/{{sermon.link}}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</section>
+{% endblock %}

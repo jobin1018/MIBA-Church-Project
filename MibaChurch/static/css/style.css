@@ -1,0 +1,653 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&family=Nunito:ital@1&family=Poppins:wght@500&display=swap');
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+   font-family: 'Poppins', sans-serif;
+   font-weight: 300;
+   overflow-x: hidden;
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/bible_read_darkbg.jpg);
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.navbar{
+    z-index: 5000;
+}
+/* Set the border color */ 
+          
+.custom-toggler.navbar-toggler { 
+    /* border-color: rgba(251, 181, 56, 1);  */
+} 
+/* Setting the stroke to green using rgb values (0, 128, 0) */ 
+  
+.custom-toggler .navbar-toggler-icon { 
+    background-image: url( 
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(251, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+} 
+.navbar-brand{
+  color: #FBB538!important;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+
+.nav-link{
+    color: white!important;
+    margin-right: 1rem;
+}
+.nav-link:hover{
+    color: #FBB538!important;
+}
+.hero-section {
+    position: relative;
+    color: white;
+    height: 80vh;
+}
+.hero-content{
+    position: absolute;
+    top: 30%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+.hero-content .yellow-underline{
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    top: 75%;
+    left: 0%;
+    background-color: #FBB538;
+    margin-bottom: 5rem;
+}
+h1{
+    font-size: 5rem;
+    color: white!important; 
+    font-weight: bold;
+}
+.hero-content .hero-btn{
+    background-color: #FBB538;
+    border: none;
+    color: black;
+    border-radius: 0;
+    font-weight: bold;
+    padding: .5rem;
+    width: 7rem;
+    margin-top: 3rem;
+}
+.home-second-section{
+    width: 100%;
+    min-height: 80vh;
+    background-image: linear-gradient(180deg, rgba(254, 254, 254, 0.8) 0%, rgba(254, 254, 254, 0.8) 100%), url(../images/home-sec2-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home-second-section .container{
+    min-height: 80vh;
+}
+h2{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.home-second-section a{
+    color: #13456A;
+}
+.text-part{
+    position: relative;
+}
+.text-part h2{
+    margin-bottom: 3rem;
+}
+.text-part strong{
+    font-weight: bold;
+}
+.text-part .yellow-underline{
+    position: absolute;
+    width: 20%;
+    height: 4px;
+    top: 53%;
+    left: 3%;
+    background-color: #FBB538;
+    margin-bottom: 5rem;
+}   
+.yellow-lines-for-links{
+    width: 3rem;
+    margin: 0 .5rem;
+}
+.text-part .left-line{
+    margin-left: 0;
+}
+.direction-div{
+    width: 50%;
+    background-color: #FBB538;
+    height: 40vh;
+    transition: all .3s ease;
+}
+.direction-div img{
+    display: block;
+    width: 1.2rem;
+}
+.direction-div:hover{
+    background-color: #1B1B1B;
+}
+.direction-div:hover .loc-icon{
+    filter: invert(76%) sepia(100%) saturate(4027%) hue-rotate(334deg) brightness(107%) contrast(94%);
+}
+.direction-div:hover .direction-link{
+    color: #FBB538;
+}
+.sunday-timing-div{
+    width: 50%;
+    background-color: #13456A;
+    color: white;
+    height: 40vh;
+    transition: all .3s ease;
+}
+.sunday-timing-div:hover{
+    background-color: #1B1B1B;
+    color: #FBB538;
+}
+.home-third-section{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(180deg, rgba(254, 254, 254, 0.8) 0%, rgba(254, 254, 254, 0.8) 100%), url(../images/home-sec2-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem 0;
+}
+.home-third-section .container{
+    min-height: 100vh;
+    background-color: #FBB538;
+}
+.custom-list .list-group-item{
+    border: none;
+    background: none;
+}
+.custom-list .list-group-item p{
+    display: inline-block;
+}
+.hub-box .custom-list .list-group-item img{
+    width: 2rem;
+}
+.hub-box{
+    background-color: white;
+    height: 50vh;
+    transition: all .3s ease;
+}
+.hub-box a{
+    color: #13456A;
+}
+.hub-box:hover{
+    background-color: #FBB538;
+}
+.hub-box:hover .yellow-arrow{
+    filter: invert(19%) sepia(35%) saturate(2297%) hue-rotate(178deg) brightness(93%) contrast(88%);
+}
+.yellow-arrow{
+    width: 3rem;
+    margin-left: .5rem;
+}
+.prayer-box{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/prayer-girl.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white!important;
+    height: 50vh;
+    transition: all 1s;
+    background-position: center;
+}
+.prayer-box a{
+    color: #FBB538;
+}
+.prayer-box:hover{
+    transition: all 1s;
+    background-position: right;
+}
+.sermons-box{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/sermon-mic-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white!important;
+    height: 50vh;
+    transition: all 1s;
+}
+.sermons-box a{
+    color: #FBB538;
+}
+.sermons-box p{
+    margin-left: 1rem;
+}
+.sermons-box:hover{
+    transition: all 1s;
+    background-position: right;
+}
+.contact-box{
+    background-color: white;
+    height: 50vh;
+    transition: all .3s ease;
+}
+.contact-box a{
+    color: #13456A;
+}
+.contact-box:hover{
+    background-color: #13456A;
+}
+.contact-box:hover a{
+    color: #FBB538;
+}
+.contact-box:hover p{
+    color: white;
+}
+footer{
+    background-color: #1B1B1B;
+    padding: 2rem 0rem;
+    margin-top: auto;
+}
+footer .miba-logo{
+    width: 5rem;
+}
+.social-links{
+    padding: 1rem;
+}
+.social-links img{
+    width: 1.2rem;
+    margin: 1rem;
+}
+
+@media (max-width: 992px){
+    h1{
+        font-size: 4rem;
+    }
+    header{
+        background-position: center;
+    }
+    .hero-content .yellow-underline{
+        top: 70%;
+    }
+    .home-second-section{
+        background-position: center;
+    }
+    .nav-menu-collapse{
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 1rem;
+        transition: all .5s ease;
+    }
+    .navbar-collapse-bg{
+        background-color: #1B1B1B;
+    }
+
+}
+@media (max-width: 780px){
+    h1{
+        font-size: 3.5rem;
+    }
+    h2{
+        font-size: 3rem;
+    }
+    .hero-content .yellow-underline{
+        top: 68%;
+    }
+    .hero-content .hero-btn{
+        margin-top: 2.5rem;
+    }
+    .text-part{
+        padding: 2rem 0rem;
+    }
+    .text-part .yellow-underline{
+        top: 50%;
+        left: 1.8%;
+    }
+}
+@media (max-width: 520px){
+    h1{
+        font-size: 3rem;
+    }
+    .hero-content .yellow-underline{
+        top: 65%;
+    }
+    .hero-content .hero-btn{
+        margin-top: 2rem;
+    }
+    h2{
+        font-size: 2.5rem;
+    }
+    .text-part h2{
+        margin-bottom: 2rem;
+    }
+    .text-part .yellow-underline{
+        top: 48%;
+        left: 4%;
+    }
+    .text-part{
+        padding: 2rem 1rem;
+    }
+}
+@media (max-width: 390px){
+    header{
+        height: 90vh;
+    }
+    h1{
+        font-size: 2.5rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    .hero-content .yellow-underline{
+        top: 62%;
+        height: 2.5px;
+    }
+    .hero-content .hero-btn{
+        margin-top: 2rem;
+        width: 6rem;
+        padding: .2;
+    }
+    .text-part .yellow-underline{
+        height: 2.5px;
+        left: 5%;
+        top: 45%;
+    }
+}
+/* The Home Page CSS Ends Here */
+
+/* About Page CSS */
+
+
+
+/* The About Page CSS Ends Here */
+
+.non-home-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/about_bg.jpg);
+    background-position: center;
+    height: 40vh;
+    position: relative;
+}
+.about-header{
+    z-index: 5000;
+}
+.non-home-header h1{
+    position: absolute;
+    top: 55%;
+}
+.non-home-header h1::after{
+    content: '';
+    display: block;
+    margin: 0 0;
+    width: 50%;
+    border-bottom: 4px solid #FBB538;
+}
+.about-first-section{
+    width: 100%;
+    min-height: 100vh;
+}
+.map-section{
+    width: 100%;
+    min-height: 40vh;
+    background-color: #eee;
+    padding: 2rem 0;
+}
+.map-section .container{
+    height: 100%;
+}
+.map-container{
+    margin: auto 0;
+}   
+.map{
+    width: 100%;
+    height: 15rem;
+    margin: 0 auto;
+    border: 2px solid #1B1B1B;
+}
+.map-section iframe{
+    width: 100%;
+    height: 100%;
+}
+.timing{
+    margin: .5rem 0;
+}
+.timing li{
+    text-align: center;
+}
+.church-details-section{
+    width: 100%;
+    min-height: 60vh;
+    padding: 2rem 0;
+}
+.church-details-section .container{
+    height: 100%;
+}
+.left-side-text{
+    width: 50%;
+    height: 100%;
+    background-image: url(../images/about-question-mark.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+.believe-section{
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 0;
+    background-color: #13456A;
+    position: relative;
+}
+.believe-section .container{
+    position: relative;
+}
+.believe-section h2::after{
+    content: '';
+    display: block;
+    margin: 0 30%;
+    width: 20%;
+    border-bottom: 4px solid #FBB538;
+}
+#carouselMibaControls{
+    width: 100%;
+    height: 60vh;
+}
+.carousel-inner{
+    min-height: 60%;
+}
+.carousel-item{
+   height: 100%; 
+}
+.slide{
+    width: 70%;
+    min-height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.carousel-indicators li{
+    background-color: #FBB538;
+}
+.vision-section{
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 0;
+    
+}
+.vision-section .container{
+    position: relative;
+}
+.vision-section .yellow-underline{
+    position: absolute;
+    width: 10%;
+    height: 4px;
+    top: 25%;
+    left: 38%;
+    background-color: #FBB538;
+    margin-bottom: 5rem;
+}
+.vision-section h2::after{
+    content: '';
+    display: block;
+    margin: 0 38%;
+    width: 13%;
+    border-bottom: 4px solid #FBB538;
+}
+.vision-text{
+    margin-top: 3rem;
+}
+@media (max-width: 991px){
+    .believe-section h2::after{
+        margin: 0 18%;
+        width: 35%;
+    }
+
+    .vision-section h2::after{
+        margin: 0 30%;
+        width: 20%;
+    }
+}
+@media (max-width: 780px){
+    .church-details-section .right-side{
+        margin-top: 3rem;
+    }
+    .believe-section h2::after{
+        margin: 0 23%;
+        width: 30%;
+    }
+
+    .vision-section h2::after{
+        margin: 0 33%;
+        width: 18%;
+    }
+}
+@media (max-width: 767px){
+    .believe-section h2::after{
+        margin: 0 14%;
+    }
+
+    .vision-section h2::after{
+        margin: 0 28%;
+    }
+
+}
+@media (max-width: 520px){
+    .believe-section h2::after{
+        margin: 0 18%;
+    }
+
+    .vision-section h2::after{
+        margin: 0 30%;
+    }
+
+}
+@media (max-width: 440px){
+    .believe-section h2::after{
+        margin: 0 14%;
+    }
+
+    .vision-section h2::after{
+        margin: 0 27%;
+    }
+
+}
+/* The About Page Ends Here */
+
+/* The Sermons Page Starts Here */
+.sermons-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/sermons-bg.jpg);
+}
+
+.sermons-wrapper{
+    min-height: 50vh;
+    padding: 2rem 1rem;
+}
+.sermon-card{
+    border: none;
+}
+.sermon-card-body{
+    background-color: #FBB538;
+}
+.sermon-card-btn{
+    background-color: #13456A!important;
+    border: none;
+}
+
+/* The Sermons Page Ends Here */
+
+/* The Prayer Requests Page Starts Here */
+.prayer-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/prayer-requests-bg.jpg);
+}
+.prayer-request-container{
+    min-height: 50vh;
+    padding: 2rem 0;
+}
+.prayer-card .card-header{
+    border-color: #FBB538;
+}
+
+/* The Prayer Requests Page Ends Here */
+
+/* The Hub Page Starts Here */
+.hub-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/hub-bg.jpg);
+}
+.hub-container{
+    min-height: 50vh;
+    padding: 2rem 1rem;
+}
+
+/* The Hub Page Ends Here */
+
+/* The Hub Detailed Page Starts Here */
+.hub-detail-header{
+    height: 20vh;
+    z-index: 5000;
+}
+.hub-detail-container{
+    min-height: 50vh;
+    padding: 2rem 1rem;
+}
+.hub-detail-container h2::after{
+    content: '';
+    display: block;
+    margin: 0 0%;
+    width: 50%;
+    border-bottom: 4px solid #FBB538;
+}
+
+/* The Hub Detailed Page Ends Here */
+
+/* The Contact Page Starts Here */
+.contact-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/contact-bg.jpg);
+    z-index: 5000;
+}
+.contact-container{
+    min-height: 80vh;
+    padding: 2rem 1rem;
+}
+textarea{
+    resize: none;
+}
+.contact-info-card-body{
+    background-color: #13456A;
+}
+.contact-info-card-body img{
+    width: 1.2rem;
+    margin-right: .5rem;
+}
+/* The Contact Page Ends Here */

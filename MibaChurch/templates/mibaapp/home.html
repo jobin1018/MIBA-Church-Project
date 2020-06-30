@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock %}
+
+{% block header %}<header>{% endblock %}
+    {% block content %}
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-content ">
+                <h1>Welcome To <br> MIBA Australia</h1>
+                <span class="yellow-underline"></span>
+                <a class="btn btn-primary hero-btn" href="{% url 'sermons' %}">Sermons</a>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="home-second-section">
+    <div class="container">
+        <div class="row h-100 second-section-content align-items-center justify-content-center mt-8">
+            <div class="text-part col-lg-6">
+                <h2>The <br> Church</h2>
+                <span class="yellow-underline"></span>
+                <p class="mt-4">Want to know more about <strong>Melbourne <br> Indian Brethren Assembly?</strong>
+                </p>
+                <a class="btn btn-link pl-0" href="{% url 'about' %}"><span><img
+                            class="yellow-lines-for-links left-line"
+                            src="{% static 'images/yellow-lines-for-link.png' %}" alt=""></span>Learn More<span><img
+                            class="yellow-lines-for-links" src="{% static 'images/yellow-lines-for-link.png' %}"
+                            alt=""></span></a>
+            </div>
+            <div class="col-lg-6">
+                <div class="row h-50 justify-content-end">
+                    <div class="direction-div d-flex align-items-center col-md-6 col-sm-12 col-12">
+                        <a class="btn btn-link mx-auto direction-link" href="https://goo.gl/maps/Zz6aukXQcVhcDBp1A"
+                            target="_blank">
+                            <img class="loc-icon mx-auto" src="{% static 'images/location-icon-black.png' %}"
+                                alt="loc-icon">Get
+                            Direction</a>
+                    </div>
+                </div>
+                <div class="row h-50">
+                    <div class="sunday-timing-div d-flex align-items-center col-md-6 col-sm-12 col-12">
+                        <div class="mx-auto">
+                            <p>Sunday Timing</p>
+                            <p>9:30AM- 12:00PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="home-third-section">
+    <div class="container">
+        <div class="row h-50">
+            <div class="hub-box d-flex align-items-center justify-content-center col-12 col-sm-12 col-md-6 col-lg-6">
+                <ul class="list-group custom-list">
+                    <li class="list-group-item"><img src="{% static 'images/ls_checkbox.png' %}" alt="">
+                        <p>Announcements</p>
+                    </li>
+                    <li class="list-group-item"><img src="{% static 'images/ls_checkbox.png' %}" alt="">
+                        <p>Updates</p>
+                    </li>
+                    <li class="list-group-item"><img src="{% static 'images/ls_checkbox.png' %}" alt="">
+                        <p>Events</p>
+                    </li>
+                    <li class="list-group-item "></li><a class="mx-auto" href="{% url 'hub' %}" class="btn-link">Click
+                        Here<span><img class="yellow-arrow" src="{% static 'images/Arrow 1.png' %}" alt=""></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="prayer-box d-flex align-items-center justify-content-center col-12 col-sm-12 col-md-6 col-lg-6">
+                <ul class="list-group custom-list">
+                    <li class="list-group-item mx-auto">
+                        <p>“Pray without ceasing”</p>
+                    </li>
+                    <li class="list-group-item"><a class="mx-auto" href="{% url 'prayer_requests' %}"
+                            class="btn-link"><span><img class="yellow-lines-for-links"
+                                    src="{% static 'images/yellow-lines-for-link.png' %}" alt=""></span>Prayer
+                            Requests<span><img class="yellow-lines-for-links"
+                                    src="{% static 'images/yellow-lines-for-link.png' %}" alt=""></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row h-50">
+            <div
+                class="sermons-box d-flex align-items-center justify-content-center  col-12 col-sm-12 col-md-6 col-lg-6">
+                <ul class="list-group custom-list">
+                    <li class="list-group-item mx-auto">
+                        <p>“Blessed are those who hear the word of God and keep it!”</p>
+                    </li>
+                    <li class="list-group-item mx-auto">
+                        <a class="mx-auto" href="{% url 'sermons' %}" class="btn-link"><span><img
+                                    class="yellow-lines-for-links" src="{% static 'images/yellow-lines-for-link.png' %}"
+                                    alt=""></span>Sermons<span><img class="yellow-lines-for-links"
+                                    src="{% static 'images/yellow-lines-for-link.png' %}" alt=""></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div
+                class="contact-box d-flex align-items-center justify-content-center d-flex align-items-center justify-content-center  col-12 col-sm-12 col-md-6 col-lg-6">
+                <ul class="list-group custom-list">
+                    <li class="list-group-item">
+                        <p>Want to contact us?</p>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="mx-auto" href="{% url 'contact' %}" class="btn-link">Click Here<span><img
+                                    class="yellow-arrow" src="{% static 'images/Arrow 1.png' %}" alt=""></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
