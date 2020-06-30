@@ -3,6 +3,8 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Sermons)
+admin.site.register(PrayerRequests)
+admin.site.register(Hub)
 
 
 # Custom titles

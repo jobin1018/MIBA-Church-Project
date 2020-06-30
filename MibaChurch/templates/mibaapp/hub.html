@@ -12,42 +12,17 @@
 
 <section class="container hub-container">
     <div class="row">
+        {% for hubItem in hubItems %}
+
         <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
             <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba sermon">
             <div class="card-body sermon-card-body">
-                <!-- <span class="badge badge-info p-2 d-block mb-2 w-50">Announcement</span> -->
-                <p class="card-text text-uppercase">MIBA Australia Annual Program</p>
-                <a class="btn btn-primary sermon-card-btn" href="./hub_details.html">View Details</a>
+                <p class="card-text text-uppercase">{{hubItem.title}}</p>
+                <a class="btn btn-primary sermon-card-btn" href="{% url 'hub_detail' hubItem.id %}">View Details</a>
             </div>
         </div>
-        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba sermon">
-            <div class="card-body sermon-card-body">
-                <p class="card-text text-uppercase">MIBA Australia Annual Program</p>
-                <a class="btn btn-primary sermon-card-btn" href="./hub_details.html">View Details</a>
-            </div>
-        </div>
-        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba sermon">
-            <div class="card-body sermon-card-body">
-                <p class="card-text text-uppercase">MIBA Australia Annual Program</p>
-                <a class="btn btn-primary sermon-card-btn" href="./hub_details.html">View Details</a>
-            </div>
-        </div>
-        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba sermon">
-            <div class="card-body sermon-card-body">
-                <p class="card-text text-uppercase">MIBA Australia Annual Program</p>
-                <a class="btn btn-primary sermon-card-btn" href="./hub_details.html">View Details</a>
-            </div>
-        </div>
-        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba sermon">
-            <div class="card-body sermon-card-body">
-                <p class="card-text text-uppercase">MIBA Australia Annual Program</p>
-                <a class="btn btn-primary sermon-card-btn" href="./hub_details.html">View Details</a>
-            </div>
-        </div>
+
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

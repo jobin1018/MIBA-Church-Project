@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.shortcuts import get_object_or_404
 
 
 def home(request):
@@ -23,17 +24,23 @@ def sermons(request):
 
 
 def prayerRequests(request):
-    context = {}
+    prayerReqs = PrayerRequests.objects.all()
+
+    context = {"prayerReqs": prayerReqs}
     return render(request, "mibaapp/prayer_requests.html", context)
 
 
 def hub(request):
-    context = {}
+    hubItems = Hub.objects.all()
+
+    context = {"hubItems": hubItems}
     return render(request, "mibaapp/hub.html", context)
 
 
-def hubDetails(request):
-    context = {}
+def hubDetail(request, pk):
+    hubItem = get_object_or_404(Hub, pk=pk)
+
+    context = {"hubItem": hubItem}
     return render(request, "mibaapp/hub_details.html", context)
 
 

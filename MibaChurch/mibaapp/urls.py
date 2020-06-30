@@ -10,4 +10,5 @@ urlpatterns = [
     path("prayerRequests/", views.prayerRequests, name="prayer_requests"),
     path("hub/", views.hub, name="hub"),
     path("contact/", views.contact, name="contact"),
+    path("hub/<int:pk>/", views.hubDetail, name="hub_detail"),
 ]

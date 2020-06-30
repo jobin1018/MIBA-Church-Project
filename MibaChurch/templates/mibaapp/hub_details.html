@@ -10,22 +10,20 @@
 <section class="container hub-detail-container">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <h2>MIBA Annual Day Meeting</h2>
-            <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus curabitur neque
-                ullamcorper senectus.
-                Euismod risus nibh in magna semper tempus, volutpat. Etiam malesuada eu commodo urna enim, egestas.
-                Ac urna porta sed sed. Cursus lorem eu, tempor diam malesuada. Velit gravida vitae id interdum donec
-                dictum nibh luctus. Fermentum ac euismod pharetra tincidunt lorem a, a vitae nisl. </p>
+            <h2>{{hubItem.title}}</h2>
+            <p class="mt-4">{{hubItem.content}}</p>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
-            <img src="./images/sermon-card-img.jpg" alt="hub-detail-img">
+            <div class="card hub-card p-0 border-0">
+                <img class="card-img-top" src="{{hubItem.hub_image.url}}" alt="hub-detail-img">
+            </div>
         </div>
     </div>
     <div class="row pl-3 mt-3">
         <ul class="list-group">
-            <li class="list-group-item"><span class="font-weight-bold">Date</span> : 10/11/2020</li>
-            <li class="list-group-item"><span class="font-weight-bold">Time</span> : 10AM - 12PM</li>
-            <li class="list-group-item"><span class="font-weight-bold">Venue</span> : Dandenong, Victoria</li>
+            <li class="list-group-item"><span class="font-weight-bold">Date</span> : {{hubItem.date}}</li>
+            <li class="list-group-item"><span class="font-weight-bold">Time</span> : {{hubItem.time}}</li>
+            <li class="list-group-item"><span class="font-weight-bold">Venue</span> : {{hubItem.venue}}</li>
         </ul>
     </div>
 </section>

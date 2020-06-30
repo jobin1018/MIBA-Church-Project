@@ -28,6 +28,10 @@ h1{
 a.section:link{
     color: #ffffff;
 }
-a:link, .model-user a, .model-sermons a{
+a:link, .model-user a, .model-sermons a, .model-prayerrequests a, .model-hub a{
     color: #000;
+}
+.submit-row input{
+    background-color: #13456A;
+    color: #ffffff;
 }
