@@ -11,4 +11,6 @@ urlpatterns = [
     path("hub/", views.hub, name="hub"),
     path("contact/", views.contact, name="contact"),
     path("hub/<int:pk>/", views.hubDetail, name="hub_detail"),
+    path("gallery/", views.gallery, name="gallery"),
+    path("gallery/<int:pk>/", views.galleryDetail, name="gallery_detail"),
 ]

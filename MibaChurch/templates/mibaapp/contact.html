@@ -11,6 +11,13 @@
 </header>
 
 <section class="container contact-container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success m-2" id="msg">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
     <div class="row  d-flex align-items-center justify-content-center">
         <div class="card sermon-card mb-4 contact-info-card col-12 col-sm-12 col-md-6 col-lg-6" style="width: 10rem;">
             <img class="card-img-top" src="{% static 'images/sermon-card-img.jpg' %}" alt="miba contact">
@@ -21,19 +28,22 @@
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <form>
+            <form class="contact-form" method="POST">
+                {% csrf_token %}
                 <div class="form-group">
-                    <label for="MibaFormControlInput1">Name</label>
-                    <input type="text" class="form-control" id="MibaFormControlInput1" placeholder="Name here">
+                    <label for="MibaFormControlInput1">Your Name</label>
+                    {{ form.name }}
                 </div>
                 <div class="form-group">
-                    <label for="MibaFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="MibaFormControlInput1" placeholder="name@example.com">
+                    <label for="MibaFormControlInput1">Email</label>
+                    {{ form.email }}
                 </div>
-                <div class=" form-group">
-                    <label for="MibaFormControlTextarea1">Message</label>
-                    <textarea class="form-control" id="MibaFormControlTextarea1" rows="3"></textarea>
+                <div class="form-group">
+                    <label for="MibaFormControlInput1">Message</label>
+                    {{ form.message }}
                 </div>
+                <input class="btn btn-primary form-btn" type="submit" value="Send">
+            </form>
         </div>
     </div>
 </section>

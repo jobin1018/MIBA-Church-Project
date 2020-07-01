@@ -649,4 +649,38 @@ textarea{
     width: 1.2rem;
     margin-right: .5rem;
 }
+.contact-form .form-btn{
+    background-color: #FBB538;
+    border: none;
+    color: black;
+    border-radius: 0;
+    font-weight: bold;
+    padding: .5rem;
+    width: 5rem;
+    transition: all .3s ease;
+    letter-spacing: 1px;
+}
+.contact-form .form-btn:hover{
+    background-color: #13456A;
+    color: white;
+}
 /* The Contact Page Ends Here */
+
+/* Image Gallery CSS */
+.gallery-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/gallery_bg.jpg);
+}
+.gallery-detail-header{
+    height: 20vh;
+    z-index: 5000;
+}
+.album-card .card-body{
+    background-color: #1B1B1B;
+}
+.album-card-btn{
+    background-color: #FBB538;
+    border: none;
+    color: black;
+    transition: all .3s ease;
+}
+ /* The Image Gallery CSS Ends Here */   

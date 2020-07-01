@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Gallery {% endblock %}
+
+{% block header %}<header class="non-home-header gallery-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Gallery</h1>
+    </div>
+</header>
+
+<section class="container hub-container">
+    <div class="row">
+        {% for album in albums %}
+
+        <div class="card sermon-card album-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
+            {% for imageObj in album.albumimages_set.all %}
+            {% if forloop.first %}
+            <img class="card-img-top" src="{{imageObj.image.url}}" alt="miba gallery album">
+            {% endif %}
+            {% endfor %}
+            <div class="card-body sermon-card-body">
+                <p class="card-text text-uppercase text-white">{{album.title}}</p>
+                <a class="btn btn-primary album-card-btn" href="{% url 'gallery_detail' album.id %}">View Album</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
