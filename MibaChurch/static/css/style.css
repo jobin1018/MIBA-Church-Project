@@ -32,7 +32,7 @@ header{
 /* Set the border color */ 
           
 .custom-toggler.navbar-toggler { 
-    /* border-color: rgba(251, 181, 56, 1);  */
+    z-index: 15000;
 } 
 /* Setting the stroke to green using rgb values (0, 128, 0) */ 
   
@@ -284,15 +284,17 @@ footer .miba-logo{
     }
     .nav-menu-collapse{
         position: absolute;
-        top: 4rem;
+        top: 0;
         left: 0;
         width: 100%;
         text-align: center;
-        padding-bottom: 1rem;
+        padding: 1rem 0;
         transition: all .5s ease;
     }
-    .navbar-collapse-bg{
+    .navbar-collapse{
         background-color: #1B1B1B;
+        z-index: 10000;
+          
     }
 
 }
@@ -608,6 +610,7 @@ footer .miba-logo{
 .hub-container{
     min-height: 50vh;
     padding: 2rem 1rem;
+
 }
  /* SearchBox styles */
  .active-purple-2 input.form-control[type=text]:focus:not([readonly]) {
@@ -631,6 +634,7 @@ svg {
 .hub-detail-container{
     min-height: 50vh;
     padding: 2rem 1rem;
+
 }
 .hub-detail-container h2::after{
     content: '';
@@ -712,3 +716,7 @@ textarea{
     color: black;
 }
 /* Paginator CSS Ends */
+/* Active header to extend height with navbar collapse */
+.active-header{
+    height: 55vh;
+}
