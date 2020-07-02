@@ -1,5 +1,6 @@
 from django.db import models
 from django_resized import ResizedImageField
+from django.urls import reverse
 
 
 class Sermons(models.Model):
@@ -36,6 +37,7 @@ class Hub(models.Model):
     date = models.CharField(max_length=50, blank=True, null=True)
     time = models.CharField(max_length=50, blank=True, null=True)
     venue = models.CharField(max_length=100, blank=True, null=True)
+    slug = models.SlugField(null=False, unique=True)
 
     class Meta:
         verbose_name_plural = "Hub"
@@ -44,10 +46,14 @@ class Hub(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("hub_detail", kwargs={"slug": self.slug})
+
 
 class Album(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     date_posted = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(null=False, unique=True)
 
     class Meta:
         verbose_name_plural = "Album"
@@ -55,6 +61,9 @@ class Album(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("gallery_detail", kwargs={"slug": self.slug})
 
 
 class AlbumImages(models.Model):

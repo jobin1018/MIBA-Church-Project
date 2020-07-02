@@ -609,6 +609,17 @@ footer .miba-logo{
     min-height: 50vh;
     padding: 2rem 1rem;
 }
+ /* SearchBox styles */
+ .active-purple-2 input.form-control[type=text]:focus:not([readonly]) {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #13456A;
+    box-shadow: 0 1px 0 0 #ce93d8;
+  }
+svg {
+    fill: #13456A;
+}
+ /* Search Box styles ends here */
 
 /* The Hub Page Ends Here */
 
@@ -684,3 +695,20 @@ textarea{
     transition: all .3s ease;
 }
  /* The Image Gallery CSS Ends Here */   
+
+/* Paginator CSS */
+.paginator-prev svg{
+    fill: blue;
+    display: inline-block;
+}
+.paginator .page-link{
+    background-color: #1B1B1B;
+    color: #FBB538;
+    border: none;
+    margin: .1rem;
+}
+.paginator .active .page-link{
+    background-color: #FBB538;
+    color: black;
+}
+/* Paginator CSS Ends */

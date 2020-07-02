@@ -4,7 +4,13 @@ from .models import *
 # Register your models here.
 admin.site.register(Sermons)
 admin.site.register(PrayerRequests)
-admin.site.register(Hub)
+
+
+class HubAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+
+
+admin.site.register(Hub, HubAdmin)
 
 
 class AlbumImagesAdmin(admin.StackedInline):
@@ -14,6 +20,7 @@ class AlbumImagesAdmin(admin.StackedInline):
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
     inlines = [AlbumImagesAdmin]
+    prepopulated_fields = {"slug": ("title",)}
 
     class Meta:
         model = Album
