@@ -26,34 +26,88 @@ header{
     background-size: cover;
     position: relative;
 }
-.navbar{
+/* .navbar{
     z-index: 5000;
-}
+} */
 /* Set the border color */ 
           
-.custom-toggler.navbar-toggler { 
+/* .custom-toggler.navbar-toggler { 
     z-index: 15000;
-} 
+}  */
 /* Setting the stroke to green using rgb values (0, 128, 0) */ 
   
-.custom-toggler .navbar-toggler-icon { 
+/* .custom-toggler .navbar-toggler-icon { 
     background-image: url( 
 "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(251, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
-} 
-.navbar-brand{
+}  */
+ .navbar-brand{
   color: #FBB538!important;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 1.5rem;
 }
-
+/* 
 .nav-link{
     color: white!important;
     margin-right: 1rem;
 }
 .nav-link:hover{
     color: #FBB538!important;
+} */ 
+li{
+    list-style: none;
 }
+a{
+    text-decoration: none;
+}
+.nav-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 25000;
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 4%;
+}
+.burger-menu{
+    display: none;
+}
+a.current{
+    border-bottom: 1.5px solid  #cacaca
+    
+}
+.nav-links{
+    position: static;
+    width: 80%;
+    height: 100%;
+    transform: translatey(0);
+    box-shadow: none;
+    background-color: transparent;
+}
+.nav-links ul{
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.scrolled-nav .nav-links{
+    background-color: transparent;
+}
+.nav-links ul li a{
+    display: block;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+.nav-links ul li a:hover{
+    color: #FBB538;
+    text-decoration: none;
+}
+
 .hero-section {
     position: relative;
     color: white;
@@ -270,6 +324,90 @@ footer .miba-logo{
 }
 
 @media (max-width: 992px){
+    .burger-menu{
+        width: 2.2rem;
+        height: 2.2rem;
+        background-color: #eee;
+        border-radius: .3rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 6000;
+    }
+    .burger-menu:hover{
+        box-shadow: inset .3rem .3rem .3rem #cacaca,
+                    inset -.3rem -.3rem .8rem #fff;
+    }
+    .bar{
+        width: 1.5rem;
+        height: 2px;
+        background-color: #333;
+        display: inline-block;
+        position: relative;
+        transition: background-color .5s;
+    }
+    .bar::before, .bar::after{
+        content: "";
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        background-color: #333;
+        transition: all .5s;
+    }
+    .bar::before{
+        top: -.4rem;
+    }
+    .bar::after{
+        top: .4rem;
+    }
+    .open .bar{
+        background-color: transparent;
+    }
+    .open .bar::before{
+        top: 0;
+        transform: rotate(135deg);
+    }
+    .open .bar::after{
+        top: 0;
+        transform: rotate(-135deg);
+    }
+    .nav-links{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 70vh;
+        background-color: #1B1B1B;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: -.5rem 0 1rem rgba(0,0,0,.1);
+        transform: translatey(-110%);
+        transition: transform .8s;
+        z-index: 4000;
+    }
+    .open .nav-links{
+        transform: translatex(0);
+    }
+    .nav-links ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .nav-links ul li{
+        margin: .5rem 0;
+    }
+    .nav-links ul li a{
+        padding: .3rem;
+        font-size: 1rem;
+        color: white;
+        text-transform: uppercase;
+        transition: all .3s;
+    }
+
     h1{
         font-size: 4rem;
     }
@@ -293,7 +431,6 @@ footer .miba-logo{
     }
     .navbar-collapse{
         background-color: #1B1B1B;
-        z-index: 10000;
           
     }
 
@@ -381,6 +518,7 @@ footer .miba-logo{
     background-position: center;
     height: 40vh;
     position: relative;
+    transition: height .5s ease;
 }
 .about-header{
     z-index: 5000;
@@ -570,11 +708,13 @@ footer .miba-logo{
 /* The Sermons Page Starts Here */
 .sermons-header{
     background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/sermons-bg.jpg);
+
 }
 
 .sermons-wrapper{
     min-height: 50vh;
     padding: 2rem 1rem;
+
 }
 .sermon-card{
     border: none;
@@ -716,7 +856,40 @@ textarea{
     color: black;
 }
 /* Paginator CSS Ends */
+@media (max-width: 340px){
+    .nav-links{
+        height: 50vh;
+    }
+    .nav-links ul li{
+        margin: .5rem 0;
+    }
+    .brand{
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 600px){
+    .burger-menu{
+        width: 2rem;
+        height: 2rem;
+    }
+    .bar{
+        width: 1.5rem;
+    }
+    .bar::before{
+        top: -.5rem;
+    }
+    .bar::after{
+        top: .5rem;
+    }
+    .nav-links ul li a{
+        font-size: 1rem;
+    }
+}
 /* Active header to extend height with navbar collapse */
 .active-header{
-    height: 55vh;
+    height: 70vh;
+    transition: height .5s ease;
 }
+
+

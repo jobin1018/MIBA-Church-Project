@@ -40,44 +40,27 @@
 <body>
 
     {% block header %}{% endblock %}
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
+    <div class="nav-container ">
+        <div class="brand">
             <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/MIBA_GOLD_LOGO 2.png ' %}"
                     height="70" width="70" class="d-inline-block img-fluid" alt=""><span
                     class="brand-name">MIBA</span></a>
-            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse nav-menu-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sermons' %}">Sermons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'prayer_requests' %}">Prayer Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'hub' %}">Hub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </nav>
+        <div class="burger-menu">
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'sermons' %}">Sermons</a></li>
+                <li><a href="{% url 'prayer_requests' %}">Prayer Requests</a></li>
+                <li><a href="{% url 'hub' %}">Hub</a></li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
     {% block content %}{% endblock %}
 
