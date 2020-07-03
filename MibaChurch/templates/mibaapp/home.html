@@ -12,10 +12,15 @@
                 <a class="btn btn-primary hero-btn" href="{% url 'sermons' %}">Sermons</a>
             </div>
         </div>
+        <div class="scroll-down-btn">
+            <a href="#home-second"><img class="arrow" src="{% static 'images/line-angle-down.svg' %}"
+                    alt="scroll down"></a>
+        </div>
+    </div>
     </div>
 </header>
 <section class="home-second-section">
-    <div class="container">
+    <div class="container" id="home-second">
         <div class="row h-100 second-section-content align-items-center justify-content-center mt-8">
             <div class="text-part col-lg-6">
                 <h2>The <br> Church</h2>

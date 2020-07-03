@@ -11,19 +11,18 @@
 </header>
 
 <section class="container hub-container">
-    <form action="{% url 'hub_search' %}" method="GET"
-        class="form-inline d-flex justify-content-center md-form form-sm active-purple-2 mt-0 mb-4">
-        <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-            <path fill-rule="evenodd"
-                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-        </svg>
-        <input class="form-control form-control-sm ml-3 w-75" name="r" type="text" placeholder="Search in hub.."
-            aria-label="Search">
+    <form action="{% url 'hub_search' %}" method="GET">
+        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+                <input type="search" name="r" placeholder="Looking something in hub? Type it here.."
+                    aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
     </form>
-
     <div class="row">
         {% if hubSearchResult %}
         {% for hubItem in hubSearchResult %}
@@ -38,7 +37,9 @@
 
         {% endfor %}
         {% else %}
-        <p>No search results matching "{{query}}".</p>
+        <div class="container mt-4">
+            <p>No search results matching "{{query}}".</p>
+        </div>
         {% endif %}
     </div>
 </section>

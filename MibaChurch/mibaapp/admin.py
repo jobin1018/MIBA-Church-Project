@@ -2,11 +2,23 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-admin.site.register(Sermons)
-admin.site.register(PrayerRequests)
+class SermonsAdmin(admin.ModelAdmin):
+    list_display = ("title", "date_posted")
+
+
+admin.site.register(Sermons, SermonsAdmin)
+
+
+class PrayerRequestsAdmin(admin.ModelAdmin):
+    list_display = ("title", "date_posted")
+
+
+admin.site.register(PrayerRequests, PrayerRequestsAdmin)
 
 
 class HubAdmin(admin.ModelAdmin):
+    list_display = ("title", "date_posted")
+
     prepopulated_fields = {"slug": ("title",)}
 
 
@@ -19,6 +31,8 @@ class AlbumImagesAdmin(admin.StackedInline):
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
+    list_display = ("title", "date_posted")
+
     inlines = [AlbumImagesAdmin]
     prepopulated_fields = {"slug": ("title",)}
 

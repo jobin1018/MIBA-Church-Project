@@ -7,6 +7,7 @@
 }
 html{
     height: 100%;
+    scroll-behavior: smooth;
 }
 body{
    font-family: 'Poppins', sans-serif;
@@ -26,34 +27,12 @@ header{
     background-size: cover;
     position: relative;
 }
-/* .navbar{
-    z-index: 5000;
-} */
-/* Set the border color */ 
-          
-/* .custom-toggler.navbar-toggler { 
-    z-index: 15000;
-}  */
-/* Setting the stroke to green using rgb values (0, 128, 0) */ 
-  
-/* .custom-toggler .navbar-toggler-icon { 
-    background-image: url( 
-"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(251, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
-}  */
  .navbar-brand{
   color: #FBB538!important;
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 1.5rem;
 }
-/* 
-.nav-link{
-    color: white!important;
-    margin-right: 1rem;
-}
-.nav-link:hover{
-    color: #FBB538!important;
-} */ 
 li{
     list-style: none;
 }
@@ -81,7 +60,7 @@ a.current{
     
 }
 .nav-links{
-    position: static;
+    position: sticky    ;
     width: 80%;
     height: 100%;
     transform: translatey(0);
@@ -89,19 +68,17 @@ a.current{
     background-color: transparent;
 }
 .nav-links ul{
-    padding: 0 1rem;
+    padding: 0 0rem;
     width: 100%;
     display: flex;
     justify-content: space-around;
-}
-.scrolled-nav .nav-links{
-    background-color: transparent;
 }
 .nav-links ul li a{
     display: block;
     color: white;
     letter-spacing: 1px;
     font-size: 1rem;
+    transition: color .3s ease-in-out   ;
 }
 .nav-links ul li a:hover{
     color: #FBB538;
@@ -115,7 +92,7 @@ a.current{
 }
 .hero-content{
     position: absolute;
-    top: 30%;
+    top: 40%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
 }
@@ -142,7 +119,25 @@ h1{
     padding: .5rem;
     width: 7rem;
     margin-top: 3rem;
+    transition: all .3s ease;
 }
+.hero-btn:hover{
+    transform: scale(1.1);
+    border-radius: 50px;
+}
+.scroll-down-btn{
+    z-index: 100;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 4rem;
+    height: 4rem;
+}
+.scroll-down-btn img{
+    width: 50%;
+    opacity: .5;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(196deg) brightness(100%) contrast(105%);
+}    
 .home-second-section{
     width: 100%;
     min-height: 80vh;
@@ -319,8 +314,21 @@ footer .miba-logo{
     padding: 1rem;
 }
 .social-links img{
-    width: 1.2rem;
-    margin: 1rem;
+    width: 1.5rem;
+    margin: .7rem .5rem;
+    display: inline-block;
+}
+.social-link-text{
+    display: inline-block;
+    margin: 1rem .5rem;
+    color: #FBB538;
+
+}
+.footer-bottom a{
+    transition: color .3s ease;
+}
+.footer-bottom a:hover{
+    color: #FBB538!important;
 }
 
 @media (max-width: 992px){
@@ -342,7 +350,7 @@ footer .miba-logo{
     .bar{
         width: 1.5rem;
         height: 2px;
-        background-color: #333;
+        background-color: black;
         display: inline-block;
         position: relative;
         transition: background-color .5s;
@@ -352,7 +360,7 @@ footer .miba-logo{
         position: absolute;
         width: inherit;
         height: inherit;
-        background-color: #333;
+        background-color: black;
         transition: all .5s;
     }
     .bar::before{
@@ -725,6 +733,10 @@ footer .miba-logo{
 .sermon-card-btn{
     background-color: #13456A!important;
     border: none;
+    transition: background-color .3s ease;
+}
+.sermon-card-btn:hover{
+    background-color: #1B1B1B!important;
 }
 
 /* The Sermons Page Ends Here */
@@ -756,8 +768,9 @@ footer .miba-logo{
  .active-purple-2 input.form-control[type=text]:focus:not([readonly]) {
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid #13456A;
+    border-bottom: 2px solid #13456A;
     box-shadow: 0 1px 0 0 #ce93d8;
+    padding: 1rem;
   }
 svg {
     fill: #13456A;
@@ -816,7 +829,7 @@ textarea{
     letter-spacing: 1px;
 }
 .contact-form .form-btn:hover{
-    background-color: #13456A;
+    background-color: #0275d8;
     color: white;
 }
 /* The Contact Page Ends Here */
@@ -886,10 +899,36 @@ textarea{
         font-size: 1rem;
     }
 }
+@media (min-width: 1400px){
+    html{
+        font-size: 1.2rem;
+    }
+    .navbar-brand{
+        font-size: 1.8rem;
+
+    }
+}
 /* Active header to extend height with navbar collapse */
 .active-header{
     height: 70vh;
     transition: height .5s ease;
 }
+.active-nav-link {
+    color: #FBB538;
+}
 
-
+.form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+  .form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+  }

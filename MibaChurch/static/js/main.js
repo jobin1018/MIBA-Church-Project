@@ -13,3 +13,14 @@ burgerMenu.addEventListener('click', function () {
     hubDetailHeader.classList.toggle('active-header');
     galleryDetailHeader.classList.toggle('active-header');
 });
+
+//Scroll into view
+document.querySelectorAll('.scroll-down-btn a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
