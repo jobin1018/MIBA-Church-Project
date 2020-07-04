@@ -133,7 +133,7 @@ def contact(request):
                 + message
             )
 
-            send_mail(subject, message, email, ["mibassembly20@gmail.com"])
+            send_mail(subject, message, email, ["mbassembly@yahoo.com"])
             messages.success(request, "Your message has been sent")
 
             return HttpResponseRedirect(request.path_info)

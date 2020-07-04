@@ -28,7 +28,7 @@ h1{
 a.section:link{
     color: #ffffff;
 }
-a:link, .model-user a, .model-group a, .model-sermons a, .model-prayerrequests a, .model-hub a, .model-album a, .model-albumimages a{
+a:link, .model-user a, .model-group a, .model-sermons a, .model-prayerrequests a, .model-hub a, .model-album a, .model-albumimages a, .module a{
     color: #000;
 }
 .submit-row input{
