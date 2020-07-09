@@ -47,6 +47,34 @@ def sermonsSearch(request):
     return render(request, "mibaapp/sermons_search.html", context)
 
 
+def songs(request):
+    songsObj = Songs.objects.all()
+
+    for song in songsObj:
+        song.link = song.link.split("/")[-1]
+
+    paginator = Paginator(songsObj, 12)
+    page = request.GET.get("page")
+    songsObj = paginator.get_page(page)
+
+    context = {"songs": songsObj}
+    return render(request, "mibaapp/songs.html", context)
+
+
+def songsSearch(request):
+    query = request.GET.get("q", "")
+    if query:
+        queryset = Q(title__icontains=query)
+        songsSearchResult = Songs.objects.filter(queryset).distinct()
+        for song in songsSearchResult:
+            song.link = song.link.split("/")[-1]
+    else:
+        songsSearchResult = []
+
+    context = {"songsSearchResult": songsSearchResult, "query": query}
+    return render(request, "mibaapp/songs_search.html", context)
+
+
 def prayerRequests(request):
     prayerReqs = PrayerRequests.objects.all()
 

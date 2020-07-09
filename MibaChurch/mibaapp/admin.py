@@ -9,6 +9,13 @@ class SermonsAdmin(admin.ModelAdmin):
 admin.site.register(Sermons, SermonsAdmin)
 
 
+class SongsAdmin(admin.ModelAdmin):
+    list_display = ("title", "date_posted")
+
+
+admin.site.register(Songs, SongsAdmin)
+
+
 class PrayerRequestsAdmin(admin.ModelAdmin):
     list_display = ("title", "date_posted")
 

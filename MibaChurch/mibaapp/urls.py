@@ -7,6 +7,7 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name="about"),
     path("sermons/", views.sermons, name="sermons"),
+    path("songs/", views.songs, name="songs"),
     path("prayerRequests/", views.prayerRequests, name="prayer_requests"),
     path("hub/", views.hub, name="hub"),
     path("hub/search/", views.hubSearch, name="hub_search"),
@@ -15,4 +16,5 @@ urlpatterns = [
     path("gallery/", views.gallery, name="gallery"),
     path("gallery/<slug:slug>/", views.galleryDetail, name="gallery_detail"),
     path("sermons/search/", views.sermonsSearch, name="sermons_search"),
+    path("songs/search/", views.songsSearch, name="songs_search"),
 ]

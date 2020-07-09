@@ -23,11 +23,13 @@
         </div>
     </div>
     <div class="row pl-3 mt-3">
+        {% if hubItem.date or hubItem.time or hubItem.venue %}
         <ul class="list-group">
             <li class="list-group-item"><span class="font-weight-bold">Date</span> : {{hubItem.date}}</li>
             <li class="list-group-item"><span class="font-weight-bold">Time</span> : {{hubItem.time}}</li>
             <li class="list-group-item"><span class="font-weight-bold">Venue</span> : {{hubItem.venue}}</li>
         </ul>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

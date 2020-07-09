@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Sermons {% endblock %}
+{% block title %} Songs {% endblock %}
 
-{% block header %}<header class="non-home-header sermons-header">{% endblock %}
+{% block header %}<header class="non-home-header songs-header">{% endblock %}
 
     {% block content %}
     <div class="container">
-        <h1>Sermons</h1>
+        <h1>Songs</h1>
     </div>
 </header>
 
-<section class="container sermons-wrapper">
-    <form action="{% url 'sermons_search' %}" method="GET">
+<section class="container sermons-wrapper songs-wrapper">
+    <form action="{% url 'songs_search' %}" method="GET">
         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
             <div class="input-group">
-                <input type="search" name="q" placeholder="Looking for a sermon? Type it here.."
+                <input type="search" name="q" placeholder="Looking for a song? Type it here.."
                     aria-describedby="button-addon1" class="form-control border-0 bg-light">
                 <div class="input-group-append">
                     <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
@@ -24,26 +24,26 @@
         </div>
     </form>
     <div class="row">
-        {% for sermon in sermons %}
+        {% for song in songs %}
         <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="{{sermon.sermon_image.url}}" alt="miba sermon">
+            <img class="card-img-top" src="{{song.song_image.url}}" alt="miba song">
             <div class="card-body sermon-card-body">
-                <p class="card-text text-uppercase">{{sermon.title}}</p>
+                <p class="card-text text-uppercase">{{song.title}}</p>
                 <button type="button" class="btn btn-primary sermon-card-btn" data-toggle="modal"
-                    data-target="#MibaModalCenter{{sermon.id}}">Watch</button>
+                    data-target="#MibaModalCenter{{song.id}}">Listen</button>
             </div>
         </div>
         {% endfor %}
 
     </div>
     <!-- Modal -->
-    {% for sermon in sermons %}
-    <div class="modal fade" id="MibaModalCenter{{sermon.id}}" tabindex="-1" role="dialog"
+    {% for song in songs %}
+    <div class="modal fade" id="MibaModalCenter{{song.id}}" tabindex="-1" role="dialog"
         aria-labelledby="MibaModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="MibaModalLongTitle{{sermon.id}}">MIBA Sermon - {{sermon.date_posted}}
+                    <h5 class="modal-title" id="MibaModalLongTitle{{song.id}}">MIBA Song - {{song.date_posted}}
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="modal-body embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item sermon-iframe"
-                        src="https://www.youtube.com/embed/{{sermon.link}}" frameborder="0"
+                        src="https://www.youtube.com/embed/{{song.link}}" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
@@ -63,30 +63,31 @@
     {% endfor %}
 
     <div class="paginator d-flex justify-content-center">
-        {% if sermons.paginator.num_pages > 1 %}
+        {% if songs.paginator.num_pages > 1 %}
         <nav aria-label="Page navigation example">
             <ul class="pagination">
 
-                {% if sermons.has_previous %}
-                <li class="page-item"><a class="page-link" href="?page={{ sermons.previous_page_number }}"
+                {% if songs.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ songs.previous_page_number }}"
                         aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span></a></li>
 
                 {% endif %}
 
-                {% for num in sermons.paginator.page_range %}
-                {% if sermons.number == num %}
+                {% for num in songs.paginator.page_range %}
+                {% if songs.number == num %}
                 <li class="page-item active"><a class="page-link" href="#">{{num}} <span
                             class="sr-only">(current)</span></a>
                 </li>
-                {% elif num > sermons.number|add:'-3' and num < sermons.number|add:'3' %}
+                {% elif num > songs.number|add:'-3' and num < songs.number|add:'3' %}
                 <li class="page-item"><a class="page-link" href="?page={{ num }}">{{num}}</a></li>
                 {% endif %}
                 {% endfor %}
-                {% if sermons.has_next %}
-                <li class="page-item"><a class="page-link" href="?page={{ sermons.next_page_number }}"
-                        aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span></a></li>
+                {% if songs.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ songs.next_page_number }}"
+                        aria-label="Next"></a>
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span></a></li>
                 {% endif %}
             </ul>
         </nav>

@@ -45,3 +45,7 @@ scrollToTopBtn.addEventListener('click', (e) => {
     e.preventDefault();
 })
 // Scroll to top btn ends
+
+// Stop Yt on modal close 
+
+// Ends

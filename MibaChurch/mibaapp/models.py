@@ -5,11 +5,38 @@ from django.urls import reverse
 
 class Sermons(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
+    sermon_image = ResizedImageField(
+        size=[1000, 550],
+        quality=100,
+        blank=True,
+        default="sermon_default.jpg",
+        upload_to="sermon_images",
+    )
     link = models.CharField(max_length=200, blank=True, null=True)
     date_posted = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = "Sermons"
+        ordering = ["-date_posted"]
+
+    def __str__(self):
+        return self.title
+
+
+class Songs(models.Model):
+    title = models.CharField(max_length=200, blank=True, null=True)
+    song_image = ResizedImageField(
+        size=[1000, 550],
+        quality=100,
+        blank=True,
+        default="songs_default.jpg",
+        upload_to="songs_images",
+    )
+    link = models.CharField(max_length=200, blank=True, null=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Songs"
         ordering = ["-date_posted"]
 
     def __str__(self):
@@ -33,7 +60,13 @@ class Hub(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
     content = models.TextField(max_length=1000, blank=True, null=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    hub_image = ResizedImageField(size=[1000, 550], quality=100, upload_to="hub_images")
+    hub_image = ResizedImageField(
+        size=[1000, 550],
+        blank=True,
+        quality=100,
+        default="hub_default.jpg",
+        upload_to="hub_images",
+    )
     date = models.CharField(max_length=50, blank=True, null=True)
     time = models.CharField(max_length=50, blank=True, null=True)
     venue = models.CharField(max_length=100, blank=True, null=True)
