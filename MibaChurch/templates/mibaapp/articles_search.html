@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Songs {% endblock %}
+
+{% block header %}<header class="non-home-header songs-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Articles</h1>
+    </div>
+</header>
+<section class="container sermons-wrapper">
+    <form action="{% url 'articles_search' %}" method="GET">
+        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+                <input type="search" name="q" placeholder="Looking for an article? Type it here.."
+                    aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        {% if articleSearchResult %}
+        {% for article in articleSearchResult %}
+        <div class="card sermon-card article-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
+            <img class="card-img-top" src="{{article.article_image.url}}" alt="miba article">
+            <div class="card-body article-card-body">
+                <p class="card-text text-uppercase">{{article.title}}</p>
+                <div class="article-body-bottom">
+                    <div class="d-flex align-items-center">
+                        <a type=" button" href="{{article.pdf.url}}" target="blank_"
+                            class="btn btn-primary article-card-btn">Read</a>
+                    </div>
+                    <div class="text-right">
+                        <p>{{article.author}}</p>
+                        <p>{{article.date_posted}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <div class="container mt-4">
+        <p>No search results matching "{{query}}".</p>
+    </div>
+    {% endif %}
+
+</section>
+
+{% endblock %}

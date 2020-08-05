@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Hub {% endblock %}
+
+{% block header %}<header class="non-home-header hub-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Kids Corner</h1>
+    </div>
+</header>
+
+<section class="container hub-container">
+    <form action="{% url 'kids_search' %}" method="GET">
+        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+                <input type="search" name="r" placeholder="Looking something? Type it here.."
+                    aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        {% for item in kidsItems %}
+        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
+            <img class="card-img-top" src="{{item.kids_image.url}}" alt="miba kidsCorner">
+            <div class="card-body sermon-card-body">
+                <p class="card-text text-uppercase">{{item.title}}</p>
+                <button type="button" class="btn btn-primary sermon-card-btn" data-toggle="modal"
+                    data-target="#MibaModalCenter{{item.id}}">Watch</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Modal -->
+    {% for item in kidsItems %}
+    <div class="modal fade" id="MibaModalCenter{{item.id}}" tabindex="-1" role="dialog"
+        aria-labelledby="MibaModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MibaModalLongTitle{{item.id}}">MIBA Kids Corner - {{item.date_posted}}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item sermon-iframe"
+                        src="https://www.youtube.com/embed/{{item.link}}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="paginator d-flex justify-content-center">
+        {% if kidsItems.paginator.num_pages > 1 %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+
+                {% if kidsItems.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ kidsItems.previous_page_number }}"
+                        aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span></a></li>
+
+                {% endif %}
+
+                {% for num in kidsItems.paginator.page_range %}
+                {% if kidsItems.number == num %}
+                <li class="page-item active"><a class="page-link" href="#">{{num}} <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                {% elif num > kidsItems.number|add:'-3' and num < kidsItems.number|add:'3' %}
+                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{num}}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if kidsItems.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ kidsItems.next_page_number }}"
+                        aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Articles {% endblock %}
+
+{% block header %}<header class="non-home-header article-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Articles</h1>
+    </div>
+</header>
+
+<section class="container article-container">
+    <form action="{% url 'articles_search' %}" method="GET">
+        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+                <input type="search" name="q" placeholder="Looking for an article? Type it here.."
+                    aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        {% for article in articles %}
+
+        <div class="card sermon-card article-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
+            <img class="card-img-top" src="{{article.article_image.url}}" alt="miba article">
+            <div class="card-body article-card-body">
+                <p class="card-text text-uppercase">{{article.title}}</p>
+                <div class="article-body-bottom">
+                    <div class="d-flex align-items-center">
+                        <a type=" button" href="{{article.pdf.url}}" target="blank_"
+                            class="btn btn-primary article-card-btn">Read</a>
+                    </div>
+                    <div class="text-right">
+                        <p>{{article.author}}</p>
+                        <p>{{article.date_posted}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="paginator d-flex justify-content-center">
+        {% if articles.paginator.num_pages > 1 %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+
+                {% if articles.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ articles.previous_page_number }}"
+                        aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span></a></li>
+
+                {% endif %}
+
+                {% for num in articles.paginator.page_range %}
+                {% if articles.number == num %}
+                <li class="page-item active"><a class="page-link" href="#">{{num}} <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                {% elif num > articles.number|add:'-3' and num < articles.number|add:'3' %}
+                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{num}}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if articles.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ articles.next_page_number }}"
+                        aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

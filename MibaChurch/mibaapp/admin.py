@@ -16,20 +16,18 @@ class SongsAdmin(admin.ModelAdmin):
 admin.site.register(Songs, SongsAdmin)
 
 
-class PrayerRequestsAdmin(admin.ModelAdmin):
+class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title", "date_posted")
 
 
-admin.site.register(PrayerRequests, PrayerRequestsAdmin)
+admin.site.register(Article, ArticleAdmin)
 
 
-class HubAdmin(admin.ModelAdmin):
+class KidsAdmin(admin.ModelAdmin):
     list_display = ("title", "date_posted")
 
-    prepopulated_fields = {"slug": ("title",)}
 
-
-admin.site.register(Hub, HubAdmin)
+admin.site.register(KidsCorner, KidsAdmin)
 
 
 class AlbumImagesAdmin(admin.StackedInline):

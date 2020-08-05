@@ -75,47 +75,56 @@ def songsSearch(request):
     return render(request, "mibaapp/songs_search.html", context)
 
 
-def prayerRequests(request):
-    prayerReqs = PrayerRequests.objects.all()
+def article(request):
+    articles = Article.objects.all()
 
-    paginator = Paginator(prayerReqs, 10)
+    paginator = Paginator(articles, 10)
     page = request.GET.get("page")
-    prayerReqs = paginator.get_page(page)
+    articles = paginator.get_page(page)
 
-    context = {"prayerReqs": prayerReqs}
-    return render(request, "mibaapp/prayer_requests.html", context)
-
-
-def hub(request):
-    hubItems = Hub.objects.all()
-
-    paginator = Paginator(hubItems, 12)
-    page = request.GET.get("page")
-    hubItems = paginator.get_page(page)
-
-    context = {"hubItems": hubItems}
-    return render(request, "mibaapp/hub.html", context)
+    context = {"articles": articles}
+    return render(request, "mibaapp/articles.html", context)
 
 
-def hubDetail(request, slug):
-    hubItem = get_object_or_404(Hub, slug=slug)
-
-    context = {"hubItem": hubItem}
-    return render(request, "mibaapp/hub_details.html", context)
-
-
-def hubSearch(request):
-    query = request.GET.get("r", "")
-    print(query)
+def articleSearch(request):
+    query = request.GET.get("q", "")
     if query:
-        queryset = Q(title__icontains=query) | Q(content__icontains=query)
-        hubSearchResult = Hub.objects.filter(queryset).distinct()
-        print(hubSearchResult)
+        queryset = Q(title__icontains=query)
+        articleSearchResult = Article.objects.filter(queryset).distinct()
     else:
-        hubSearchResult = []
+        articleSearchResult = []
 
-    context = {"hubSearchResult": hubSearchResult, "query": query}
-    return render(request, "mibaapp/hub_search.html", context)
+    context = {"articleSearchResult": articleSearchResult, "query": query}
+    return render(request, "mibaapp/articles_search.html", context)
+
+
+def kidsCorner(request):
+    kidsItems = KidsCorner.objects.all()
+
+    for item in kidsItems:
+        item.link = item.link.split("/")[-1]
+
+    paginator = Paginator(kidsItems, 12)
+    page = request.GET.get("page")
+    kidsItems = paginator.get_page(page)
+
+    context = {"kidsItems": kidsItems}
+    return render(request, "mibaapp/kids.html", context)
+
+
+def kidsSearch(request):
+    query = request.GET.get("r", "")
+
+    if query:
+        queryset = Q(title__icontains=query)
+        kidsSearchResult = KidsCorner.objects.filter(queryset).distinct()
+        for item in kidsSearchResult:
+            item.link = item.link.split("/")[-1]
+    else:
+        kidsSearchResult = []
+
+    context = {"kidsSearchResult": kidsSearchResult, "query": query}
+    return render(request, "mibaapp/kids_search.html", context)
 
 
 def gallery(request):

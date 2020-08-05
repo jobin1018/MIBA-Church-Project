@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Hub {% endblock %}
+
+{% block header %}<header class="non-home-header hub-header">{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h1>Kids Corner</h1>
+    </div>
+</header>
+
+<section class="container hub-container">
+    <form action="{% url 'kids_search' %}" method="GET">
+        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+            <div class="input-group">
+                <input type="search" name="r" placeholder="Looking something? Type it here.."
+                    aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        {% if kidsSearchResult %}
+        {% for item in kidsSearchResult %}
+        <div class="card sermon-card mb-4 col-12 col-sm-12 col-md-4 col-lg-4" style="width: 18rem;">
+            <img class="card-img-top" src="{{item.kids_image.url}}" alt="miba kidsCorner">
+            <div class="card-body sermon-card-body">
+                <p class="card-text text-uppercase">{{item.title}}</p>
+                <button type="button" class="btn btn-primary sermon-card-btn" data-toggle="modal"
+                    data-target="#MibaModalCenter{{item.id}}">Watch</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Modal -->
+    {% for item in kidsSearchResult %}
+    <div class="modal fade" id="MibaModalCenter{{item.id}}" tabindex="-1" role="dialog"
+        aria-labelledby="MibaModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="MibaModalLongTitle{{item.id}}">MIBA Kids Corner - {{item.date_posted}}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item sermon-iframe"
+                        src="https://www.youtube.com/embed/{{item.link}}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="container mt-4">
+        <p>No search results matching "{{query}}".</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

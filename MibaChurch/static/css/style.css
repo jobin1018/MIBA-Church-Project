@@ -250,8 +250,8 @@ h2{
     width: 3rem;
     margin-left: .5rem;
 }
-.prayer-box{
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/prayer-girl.jpg);
+.article-box{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url(../images/articleSection.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: white!important;
@@ -259,10 +259,10 @@ h2{
     transition: all 1s;
     background-position: center;
 }
-.prayer-box a{
+.article-box a{
     color: #FBB538;
 }
-.prayer-box:hover{
+.article-box:hover{
     transition: all 1s;
     background-position: right;
 }
@@ -734,8 +734,6 @@ footer .miba-logo{
     background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/songs-bg.jpg);
 
 }
-
-
 .sermons-wrapper{
     min-height: 50vh;
     padding: 2rem 1rem;
@@ -759,17 +757,30 @@ footer .miba-logo{
 /* The Sermons Page Ends Here */
 
 /* The Prayer Requests Page Starts Here */
-.prayer-header{
-    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/prayer-requests-bg.jpg);
+.article-header{
+    background-image:linear-gradient(359.71deg, rgba(0, 0, 0, 0.616) 6.89%,rgba(16, 108, 129, 0.7) 47.39%, rgba(0, 0, 0, 0.7) 91.04%), url(../images/article_bg.jpg);
 }
-.prayer-request-container{
+.article-container{
     min-height: 50vh;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
 }
-.prayer-card .card-header{
-    border-color: #FBB538;
+.article-card-body{
+    background-color: #1B1B1B;
+    color: white;
 }
-
+.article-card-btn{
+    background-color: #FBB538!important;
+    color: black;
+    border: none;
+    transition: background-color .3s ease;
+}
+.article-card-btn:hover{
+    background-color: #0275d8!important;
+}
+.article-body-bottom{
+    display: flex;
+    justify-content: space-between;
+}
 /* The Prayer Requests Page Ends Here */
 
 /* The Hub Page Starts Here */

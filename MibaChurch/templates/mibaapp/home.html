@@ -60,29 +60,24 @@
         <div class="row h-50">
             <div class="hub-box d-flex align-items-center justify-content-center col-12 col-sm-12 col-md-6 col-lg-6">
                 <ul class="list-group custom-list">
-                    <li class="list-group-item"><img src="{% static 'images/ls_checkbox.png' %}" alt="">
-                        <p>Announcements</p>
-                    </li>
-                    <li class="list-group-item"><img src="{% static 'images/ls_checkbox.png' %}" alt="">
-                        <p>Updates</p>
-                    </li>
-                    <li class="list-group-item"><img src="{% static 'images/ls_checkbox.png' %}" alt="">
-                        <p>Events</p>
-                    </li>
-                    <li class="list-group-item "></li><a class="mx-auto" href="{% url 'hub' %}" class="btn-link">Click
+                    <li class="list-group-item mx-auto"><i class="fas fa-child fa-2x"></i></li>
+                    <li class="list-group-item ">Take a look at our kids corner?</li>
+                    <li class="list-group-item "></li><a class="mx-auto" href="{% url 'kids_corner' %}"
+                        class="btn-link">Click
                         Here<span><img class="yellow-arrow" src="{% static 'images/Arrow 1.png' %}" alt=""></span></a>
                     </li>
                 </ul>
             </div>
-            <div class="prayer-box d-flex align-items-center justify-content-center col-12 col-sm-12 col-md-6 col-lg-6">
+            <div
+                class="article-box d-flex align-items-center justify-content-center col-12 col-sm-12 col-md-6 col-lg-6">
                 <ul class="list-group custom-list">
                     <li class="list-group-item mx-auto">
-                        <p>“Pray without ceasing”</p>
+                        <p>“Write the vision, and make it plain upon tables, that he may run that readeth it”</p>
                     </li>
-                    <li class="list-group-item"><a class="mx-auto" href="{% url 'prayer_requests' %}"
+                    <li class="list-group-item mx-auto"><a class="mx-auto" href="{% url 'articles' %}"
                             class="btn-link"><span><img class="yellow-lines-for-links"
-                                    src="{% static 'images/yellow-lines-for-link.png' %}" alt=""></span>Prayer
-                            Requests<span><img class="yellow-lines-for-links"
+                                    src="{% static 'images/yellow-lines-for-link.png' %}"
+                                    alt=""></span>Articles<span><img class="yellow-lines-for-links"
                                     src="{% static 'images/yellow-lines-for-link.png' %}" alt=""></span></a>
                     </li>
                 </ul>

@@ -43,44 +43,45 @@ class Songs(models.Model):
         return self.title
 
 
-class PrayerRequests(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
-    content = models.TextField(max_length=500, blank=True, null=True)
+    author = models.CharField(max_length=100, blank=True, null=True)
+    pdf = models.FileField(upload_to="article_pdfs", blank=True, null=True)
+    article_image = ResizedImageField(
+        size=[1000, 550],
+        quality=100,
+        blank=True,
+        default="article_default.jpg",
+        upload_to="article_images",
+    )
     date_posted = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = "PrayerRequests"
+        verbose_name_plural = "Articles"
         ordering = ["-date_posted"]
 
     def __str__(self):
         return self.title
 
 
-class Hub(models.Model):
+class KidsCorner(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
-    content = models.TextField(max_length=1000, blank=True, null=True)
-    date_posted = models.DateTimeField(auto_now_add=True)
-    hub_image = ResizedImageField(
+    kids_image = ResizedImageField(
         size=[1000, 550],
-        blank=True,
         quality=100,
+        blank=True,
         default="hub_default.jpg",
         upload_to="hub_images",
     )
-    date = models.CharField(max_length=50, blank=True, null=True)
-    time = models.CharField(max_length=50, blank=True, null=True)
-    venue = models.CharField(max_length=100, blank=True, null=True)
-    slug = models.SlugField(null=False, unique=True)
+    link = models.CharField(max_length=200, blank=True, null=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = "Hub"
+        verbose_name_plural = "KidsCorner"
         ordering = ["-date_posted"]
 
     def __str__(self):
         return self.title
-
-    def get_absolute_url(self):
-        return reverse("hub_detail", kwargs={"slug": self.slug})
 
 
 class Album(models.Model):
