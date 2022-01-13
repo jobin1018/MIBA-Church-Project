@@ -5,7 +5,7 @@ attrs==19.3.0
 black==19.10b0
 click==7.1.2
 colorama==0.4.3
-Django==3.0.7
+Django==3.1.14
 django-resized==0.3.11
 isort==4.3.21
 lazy-object-proxy==1.4.3
